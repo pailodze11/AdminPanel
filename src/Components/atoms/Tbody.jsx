@@ -5,7 +5,7 @@ import failed from "../../assets/failed.svg";
 import usersImg from "../../assets/users.svg";
 
 const TableRow = ({ todo, user }) => {
-  const Delete = async (id) => {
+  const DeleteUsers = async (id) => {
     try {
       const deleted = await axios.delete(
         `https://jsonplaceholder.typicode.com/users/${id}`
@@ -27,9 +27,7 @@ const TableRow = ({ todo, user }) => {
       </td>
       <td className="p-2">{todo.title}</td>
       <td className="p-2">{user.email}</td>
-      <td className="p-2">
-        {`city: ${user.address.city} Address: ${user.address.street} ${user.address.suite}`}
-      </td>
+      <td className="p-2">{`city: ${user.address.city}`}</td>
       <td className="p-2">{user.address.zipcode}</td>
       <td className="p-2">
         <span className="flex justify-center items-center">
@@ -37,7 +35,10 @@ const TableRow = ({ todo, user }) => {
         </span>
       </td>
       <td className="p-2">
-        <button onClick={Delete} className="bg-red-500 text-white p-1 rounded">
+        <button
+          onClick={DeleteUsers}
+          className="bg-red-500 text-white p-1 rounded"
+        >
           Delete
         </button>
       </td>
